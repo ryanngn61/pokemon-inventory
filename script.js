@@ -3,20 +3,20 @@ const csvUrl =
 
 const cardsPerPage = 60;
 
-const ADMIN_PASSWORD = "scalper";
-
-let adminMode = false;
-
 let allCards = [];
 let filteredCards = [];
 let currentPage = 1;
 
 function parsePrice(priceString) {
-    return parseFloat(priceString.replace("$", "").replace(",", "")) || 0;
+    return parseFloat(
+        priceString.replace("$", "").replace(",", "")
+    ) || 0;
 }
 
 function renderPagination() {
-    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+
+    const totalPages =
+        Math.ceil(filteredCards.length / cardsPerPage);
 
     const top = document.getElementById("topPagination");
     const bottom = document.getElementById("bottomPagination");
@@ -25,8 +25,10 @@ function renderPagination() {
     bottom.innerHTML = "";
 
     for (let i = 1; i <= totalPages; i++) {
+
         const topBtn = document.createElement("button");
         topBtn.textContent = i;
+
         topBtn.onclick = () => {
             currentPage = i;
             renderCards();
@@ -34,6 +36,7 @@ function renderPagination() {
 
         const bottomBtn = document.createElement("button");
         bottomBtn.textContent = i;
+
         bottomBtn.onclick = () => {
             currentPage = i;
             renderCards();
@@ -45,6 +48,7 @@ function renderPagination() {
 }
 
 function renderCards() {
+
     const cardsDiv = document.getElementById("cards");
     cardsDiv.innerHTML = "";
 
@@ -61,15 +65,10 @@ function renderCards() {
             <h2>${card.cardName}</h2>
             <p>Condition: ${card.condition}</p>
             <p>Price: ${card.stickerPrice}</p>
-
-            ${
-                adminMode
-                    ? `<button class="soldButton">Mark Sold</button>`
-                    : ""
-            }
         `;
 
         cardsDiv.appendChild(cardDiv);
+
     });
 
     renderPagination();
@@ -78,7 +77,9 @@ function renderCards() {
 function applyFilters() {
 
     const searchText =
-        document.getElementById("searchInput").value.toLowerCase();
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
 
     const sortValue =
         document.getElementById("sortSelect").value;
@@ -88,29 +89,43 @@ function applyFilters() {
     );
 
     if (sortValue === "high") {
+
         filteredCards.sort(
-            (a, b) => parsePrice(b.stickerPrice) - parsePrice(a.stickerPrice)
+            (a, b) =>
+                parsePrice(b.stickerPrice) -
+                parsePrice(a.stickerPrice)
         );
+
     }
 
     if (sortValue === "low") {
+
         filteredCards.sort(
-            (a, b) => parsePrice(a.stickerPrice) - parsePrice(b.stickerPrice)
+            (a, b) =>
+                parsePrice(a.stickerPrice) -
+                parsePrice(b.stickerPrice)
         );
+
     }
 
     if (sortValue === "alpha") {
+
         filteredCards.sort(
-            (a, b) => a.cardName.localeCompare(b.cardName)
+            (a, b) =>
+                a.cardName.localeCompare(b.cardName)
         );
+
     }
 
     currentPage = 1;
+
     renderCards();
 }
 
 Papa.parse(csvUrl, {
+
     download: true,
+
     complete: function(results) {
 
         results.data.slice(1).forEach(row => {
@@ -138,13 +153,17 @@ Papa.parse(csvUrl, {
                     stickerPrice,
                     imageUrl
                 });
+
             }
 
         });
 
         filteredCards = [...allCards];
+
         renderCards();
+
     }
+
 });
 
 document
@@ -154,40 +173,3 @@ document
 document
     .getElementById("sortSelect")
     .addEventListener("change", applyFilters);
-
-const adminButton = document.getElementById("adminButton");
-const exitAdminButton = document.getElementById("exitAdminButton");
-
-adminButton.addEventListener("click", () => {
-
-    const password = prompt("Enter admin password:");
-
-    if (password === ADMIN_PASSWORD) {
-
-        adminMode = true;
-
-        adminButton.style.display = "none";
-        exitAdminButton.style.display = "inline-block";
-
-        renderCards();
-
-        alert("Admin mode enabled.");
-
-    } else {
-
-        alert("Incorrect password.");
-
-    }
-
-});
-
-exitAdminButton.addEventListener("click", () => {
-
-    adminMode = false;
-
-    adminButton.style.display = "inline-block";
-    exitAdminButton.style.display = "none";
-
-    renderCards();
-
-});
