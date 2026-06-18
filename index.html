@@ -8,7 +8,9 @@
 
     <h1>Pokemon Inventory</h1>
 
-    <div class="toolbar">
+<div class="toolbar">
+
+    <div class="toolbar-left">
 
         <input
             type="text"
@@ -23,22 +25,23 @@
             <option value="alpha">Alphabetical A → Z</option>
         </select>
 
-        <div class="toolbar-center">
+    </div>
 
-            <button id="adminButton">
-                Admin Login
-            </button>
+    <div class="toolbar-center">
 
-            <button id="exitAdminButton" style="display:none;">
-                Exit Admin Mode
-            </button>
+        <button id="adminButton">
+            Admin Login
+        </button>
 
-        </div>
-
-        <div class="toolbar-right" id="topPagination">
-        </div>
+        <button id="exitAdminButton" style="display:none;">
+            Exit Admin Mode
+        </button>
 
     </div>
+
+    <div class="toolbar-right" id="topPagination"></div>
+
+</div>
 
     <div id="cards"></div>
 
