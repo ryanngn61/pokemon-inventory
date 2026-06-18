@@ -24,7 +24,7 @@ fetch(csvUrl)
         card.innerHTML = `
           <h2>${cardName}</h2>
           <p>Condition: ${condition}</p>
-          <p>Price: $${stickerPrice}</p>
+          <p>Price: ${stickerPrice}</p>
         `;
 
         cardsDiv.appendChild(card);
