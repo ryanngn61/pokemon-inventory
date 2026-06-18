@@ -6,8 +6,9 @@ body {
 
 #cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
+    margin-top: 25px;
 }
 
 .card {
@@ -18,21 +19,37 @@ body {
 }
 
 #searchInput {
-    width: 250px;
-    padding: 8px;
+    width: 260px;
+    padding: 10px;
     font-size: 16px;
     margin-right: 15px;
 }
 
 #sortSelect {
-    padding: 8px;
+    padding: 10px;
     font-size: 16px;
     margin-right: 20px;
 }
 
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.toolbar-right {
+    margin-left: auto;
+}
+
 #adminButton,
 #exitAdminButton {
-    padding: 8px 14px;
+    padding: 10px 15px;
     font-size: 16px;
-    margin-left: 15px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
