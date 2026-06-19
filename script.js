@@ -59,32 +59,33 @@ function renderCards() {
             <h2>${card.cardName}</h2>
             <p>Condition: ${card.condition}</p>
             <p>Price: ${card.stickerPrice}</p>
-
         `;
 
         cardsDiv.appendChild(cardDiv);
 
-      
-      cardDiv.addEventListener("click", () => {
-    
-        document.getElementById("viewerImage").src =
-            card.imageUrl;
-    
-        document.getElementById("viewerName").textContent =
-            card.cardName;
-    
-        document.getElementById("viewerCondition").textContent =
-            "Condition: " + card.condition;
-    
-        document.getElementById("viewerPrice").textContent =
-            "Price: " + card.stickerPrice;
-    
-        document.getElementById("cardViewer").style.display = "flex";
-    
-    });
+        cardDiv.addEventListener("click", () => {
+
+            document.getElementById("viewerImage").src =
+                card.imageUrl;
+
+            document.getElementById("viewerName").textContent =
+                card.cardName;
+
+            document.getElementById("viewerCondition").textContent =
+                "Condition: " + card.condition;
+
+            document.getElementById("viewerPrice").textContent =
+                "Price: " + card.stickerPrice;
+
+            document.getElementById("cardViewer").style.display = "flex";
+
+        });
+
+    });   // closes forEach
 
     renderPagination();
-}
+
+}   // closes renderCards
 
 function applyFilters() {
 
