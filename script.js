@@ -241,7 +241,7 @@ adminButton.addEventListener("click", () => {
         overlay.style.display = "flex";
         
 
-        let delay = 70;
+        let delay = 90;
         let spinCount = 0;
         const maxSpins = 12;
         
