@@ -14,6 +14,7 @@ function parsePrice(priceString) {
 }
 
 function renderPagination() {
+
     const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
 
     const top = document.getElementById("topPagination");
@@ -22,24 +23,72 @@ function renderPagination() {
     top.innerHTML = "";
     bottom.innerHTML = "";
 
-    for (let i = 1; i <= totalPages; i++) {
-        const topBtn = document.createElement("button");
-        topBtn.textContent = i;
-        topBtn.onclick = () => {
-            currentPage = i;
+    function createPagination(container) {
+
+        // Previous button
+        const prevBtn = document.createElement("button");
+        prevBtn.textContent = "← Previous";
+        prevBtn.disabled = currentPage === 1;
+
+        prevBtn.onclick = () => {
+            currentPage--;
             renderCards();
         };
 
-        const bottomBtn = document.createElement("button");
-        bottomBtn.textContent = i;
-        bottomBtn.onclick = () => {
-            currentPage = i;
+        container.appendChild(prevBtn);
+
+        // Page text
+        const pageText = document.createElement("span");
+        pageText.textContent = " Page ";
+        container.appendChild(pageText);
+
+        // Dropdown
+        const select = document.createElement("select");
+
+        for (let i = 1; i <= totalPages; i++) {
+
+            const option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+
+            if (i === currentPage) {
+                option.selected = true;
+            }
+
+            select.appendChild(option);
+        }
+
+        select.addEventListener("change", () => {
+
+            currentPage = Number(select.value);
             renderCards();
+
+        });
+
+        container.appendChild(select);
+
+        // "of X"
+        const totalText = document.createElement("span");
+        totalText.textContent = ` of ${totalPages} `;
+        container.appendChild(totalText);
+
+        // Next button
+        const nextBtn = document.createElement("button");
+        nextBtn.textContent = "Next →";
+        nextBtn.disabled = currentPage === totalPages;
+
+        nextBtn.onclick = () => {
+
+            currentPage++;
+            renderCards();
+
         };
 
-        top.appendChild(topBtn);
-        bottom.appendChild(bottomBtn);
+        container.appendChild(nextBtn);
     }
+
+    createPagination(top);
+    createPagination(bottom);
 }
 
 function renderCards() {
