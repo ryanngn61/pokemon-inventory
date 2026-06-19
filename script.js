@@ -116,7 +116,7 @@ Papa.parse(csvUrl, {
         results.data.slice(1).forEach(row => {
 
             const cardName = row[0];
-            const condition = row[2];
+            const condition = row[2]?.trim() || "NM";
             const stickerPrice = row[4];
             const tcgLink = row[6];
             const inStock = row[7];
