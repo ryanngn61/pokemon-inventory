@@ -80,6 +80,7 @@ body {
 #bottomPagination {
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 #topPagination {
@@ -89,6 +90,21 @@ body {
 #bottomPagination {
     justify-content: center;
     margin-top: 30px;
+}
+
+/* Buttons */
+#topPagination button,
+#bottomPagination button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Dropdown */
+#topPagination select,
+#bottomPagination select {
+    padding: 6px;
+    border-radius: 6px;
 }
 
 #easterEggOverlay {
