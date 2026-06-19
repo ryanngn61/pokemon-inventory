@@ -163,15 +163,14 @@ adminButton.addEventListener("click", () => {
     const password = prompt("Enter admin password:");
 
     if (password === ADMIN_PASSWORD) {
-
-        adminMode = true;
-
-        adminButton.style.display = "none";
-        exitAdminButton.style.display = "inline-block";
-
-        renderCards();
-
-        alert("Admin mode enabled.");
+  
+      document.getElementById("easterEggOverlay").style.display = "flex";
+  
+  } else {
+  
+      alert("Incorrect password.");
+  
+  }
 
     } else {
 
@@ -191,3 +190,11 @@ exitAdminButton.addEventListener("click", () => {
     renderCards();
 
 });
+
+document
+    .getElementById("easterEggOverlay")
+    .addEventListener("click", () => {
+
+        document.getElementById("easterEggOverlay").style.display = "none";
+
+    });
