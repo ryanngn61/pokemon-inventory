@@ -112,8 +112,9 @@ body {
 }
 
 #viewerImage {
-    max-height: 80vh;
     width: auto;
+    max-width: 90%;
+    max-height: 65vh;
     object-fit: contain;
 }
 
@@ -142,14 +143,12 @@ body {
 
 @media (max-width: 1000px) {
 
-    body {
-        padding: 10px;
+    #cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
     }
 
-    .toolbar {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+}
 
     .toolbar-left,
     .toolbar-center,
