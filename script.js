@@ -5,6 +5,16 @@ const cardsPerPage = 60;
 
 const ADMIN_PASSWORD = "scalper";
 
+const easterEggImages = [
+
+    "https://cdn.discordapp.com/attachments/1166595568496287765/1517611981710950621/IMG_1866.jpg?ex=6a36e9cc&is=6a35984c&hm=0b4fd7268521f04b1239a0967249be5d73b330a921ebfdd12ab8c7aa753c1c62&",
+
+    "https://cdn.discordapp.com/attachments/753479605960179724/1517539428434710680/IMG_1841.jpg?ex=6a36a63a&is=6a3554ba&hm=a5253dbcc514217feb6799244c5f817c917f7df8eb8bc87644d19ef0dba29abe&",
+
+    "https://cdn.discordapp.com/attachments/753479605960179724/1517536779916411020/IMG_6970.jpg?ex=6a36a3c2&is=6a355242&hm=81352abfc636b9018a4f70602f64de798c24fcc72966476de4c72abd29e1bb0a&"
+
+];
+
 let allCards = [];
 let filteredCards = [];
 let currentPage = 1;
