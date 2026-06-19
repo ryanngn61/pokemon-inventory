@@ -5,8 +5,6 @@ const cardsPerPage = 60;
 
 const ADMIN_PASSWORD = "scalper";
 
-let adminMode = false;
-
 let allCards = [];
 let filteredCards = [];
 let currentPage = 1;
@@ -62,11 +60,6 @@ function renderCards() {
             <p>Condition: ${card.condition}</p>
             <p>Price: ${card.stickerPrice}</p>
 
-            ${
-                adminMode
-                    ? `<button class="soldButton">Mark Sold</button>`
-                    : ""
-            }
         `;
 
         cardsDiv.appendChild(cardDiv);
@@ -156,21 +149,14 @@ document
     .addEventListener("change", applyFilters);
 
 const adminButton = document.getElementById("adminButton");
-const exitAdminButton = document.getElementById("exitAdminButton");
 
 adminButton.addEventListener("click", () => {
 
     const password = prompt("Enter admin password:");
 
     if (password === ADMIN_PASSWORD) {
-  
-      document.getElementById("easterEggOverlay").style.display = "flex";
-  
-  } else {
-  
-      alert("Incorrect password.");
-  
-  }
+
+        document.getElementById("easterEggOverlay").style.display = "flex";
 
     } else {
 
@@ -180,16 +166,6 @@ adminButton.addEventListener("click", () => {
 
 });
 
-exitAdminButton.addEventListener("click", () => {
-
-    adminMode = false;
-
-    adminButton.style.display = "inline-block";
-    exitAdminButton.style.display = "none";
-
-    renderCards();
-
-});
 
 document
     .getElementById("easterEggOverlay")
