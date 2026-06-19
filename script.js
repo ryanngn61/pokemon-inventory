@@ -240,9 +240,9 @@ adminButton.addEventListener("click", () => {
         
         overlay.style.display = "flex";
         
-        let delay = 80;          // starts very fast
+        let delay = 50;          // starts very fast
         let spinCount = 0;
-        const maxSpins = 20;
+        const maxSpins = 18;
         
         function spinImage() {
         
@@ -256,7 +256,7 @@ adminButton.addEventListener("click", () => {
             if (spinCount < maxSpins) {
         
                 // gradually slow down
-                delay += 25;
+                delay += 12;
         
                 setTimeout(spinImage, delay);
         
