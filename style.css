@@ -143,12 +143,14 @@ body {
 
 @media (max-width: 1000px) {
 
-    #cards {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+    body {
+        padding: 10px;
     }
 
-}
+    .toolbar {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
 
     .toolbar-left,
     .toolbar-center,
@@ -167,7 +169,7 @@ body {
     }
 
     #cards {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
 
@@ -188,4 +190,5 @@ body {
     .card p {
         font-size: 11px;
     }
+
 }
