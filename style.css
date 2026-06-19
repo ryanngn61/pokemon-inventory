@@ -190,9 +190,10 @@ body {
     .card p {
         font-size: 11px;
     }
-    
+
     #viewerImage {
         max-width: 80%;
         max-height: 55vh;
-}
+    }
+
 }
