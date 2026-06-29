@@ -1,7 +1,7 @@
 const csvUrl =
   "https://docs.google.com/spreadsheets/d/10seFGmZRvl6N88XZ5AY5JujcR4TEzEBw78J1VkvD0Vk/export?format=csv&gid=1951960072";
 
-const cardsPerPage = 60;
+const cardsPerPage = 30;
 
 const ADMIN_PASSWORD = "scalper";
 
@@ -215,6 +215,8 @@ Papa.parse(csvUrl, {
 
         filteredCards = [...allCards];
         renderCards();
+        
+        document.getElementById("loadingOverlay").style.display = "none";
     }
 });
 
