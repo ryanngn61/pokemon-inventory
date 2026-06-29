@@ -197,3 +197,32 @@ body {
     }
 
 }
+
+/* ---------- Loading Overlay ---------- */
+
+#loadingOverlay {
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10000;
+}
+
+#loadingContent {
+    text-align: center;
+}
+
+#loadingContent h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+#loadingContent p {
+    font-size: 18px;
+    color: #666;
+}
